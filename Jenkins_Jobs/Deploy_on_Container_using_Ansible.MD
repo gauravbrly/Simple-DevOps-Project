@@ -84,3 +84,42 @@ Enable connection between Ansible-control-node and Jenkins
                 ```
 
 Save and run the job now.
+
+====================================================
+Changes added by gaurav :
+
+
+Ansible setup:
+==============
+
+
+USER CREATON FOR ANSIBLE :
+
+$ useradd ansadmin
+$passwd ans admin
+### now add this user sudo user 
+$ echo open visudo and edit this file
+$ visudo 
+***********************
+add below lines at the end of file by pressing shift+G toreach at its end
+***********************
+ansadmin ALL=(ALL)     NOPASSWD:ALL
+**********************
+save file by :wq
+
+$ 
+
+
+********************************************************
+Jenkins to ansible integration
+*******************************************************
+1. configure jenkins>add SSH server =  add ansible machine as the SSh server with ansadmin@gauravbrly as credentials
+ -- by this jenkins will be connected to ansible.
+ 2.  Build a new job 
+ 3. in job configuration >post build trigger>  send to SSh server  
+ - select SSH server 
+ - also we are creating a remote directory at ansible machine and will provide that path here, that will act as the workspace for our ansible work.
+ 
+ ******************************************************* 
+
+
